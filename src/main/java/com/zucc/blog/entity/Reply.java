@@ -1,4 +1,4 @@
-package com.zucc.blog.bean;
+package com.zucc.blog.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

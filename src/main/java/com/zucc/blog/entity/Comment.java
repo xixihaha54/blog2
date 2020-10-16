@@ -1,4 +1,4 @@
-package com.zucc.blog.bean;
+package com.zucc.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -11,43 +11,31 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "article")
-@ApiModel(description = "文章实体")
-public class Article {
+@Table(name = "comment")
+@ApiModel(description = "评论实体")
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty("文章id")
+    @ApiModelProperty("评论id")
     private long uid;
 
     @Column
-    @ApiModelProperty("标题")
-    private String title;
-
-    @Column
-    @ApiModelProperty("内容")
-    private String content;
-
-    @Column
-    @ApiModelProperty("内容简介")
-    private String contentDetails;
-
-    @Column
-    @ApiModelProperty("缩略图")
-    private String thumbnail;
-
-    @Column
-    @ApiModelProperty("作者id")
+    @ApiModelProperty("评论用户id")
     private Long accountId;
+
+    @Column
+    @ApiModelProperty("文章id")
+    private Long articleId;
+
+    @Column
+    @ApiModelProperty("评论内容")
+    private String content;
 
     @Column
     @ApiModelProperty("创建日期")
     @JsonFormat(shape= JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     @CreationTimestamp
     private Date createDate;
-
-    @Column(insertable = false,columnDefinition = "int default 0")
-    @ApiModelProperty("浏览量")
-    private Integer viewNum;
 
     @Column(insertable = false,columnDefinition = "int default 0")
     @ApiModelProperty("评论数")

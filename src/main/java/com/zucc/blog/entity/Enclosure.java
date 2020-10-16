@@ -1,4 +1,4 @@
-package com.zucc.blog.bean;
+package com.zucc.blog.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,12 +8,12 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "label")
-@ApiModel(description = "文章标签实体")
-public class Label {
+@Table(name = "enclosure")
+@ApiModel(description = "附件实体")
+public class Enclosure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ApiModelProperty("标签id")
+    @ApiModelProperty("附件id")
     private long uid;
 
     @Column
@@ -21,6 +21,7 @@ public class Label {
     private long articleId;
 
     @Column
-    @ApiModelProperty("标签内容")
-    private String content;
+    @ApiModelProperty("路径")
+    private String route;
+
 }
