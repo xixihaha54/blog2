@@ -11,13 +11,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "article")
+@Table(name="t_article")
 @ApiModel(description = "文章实体")
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("文章id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("标题")
@@ -26,10 +26,6 @@ public class Article {
     @Column
     @ApiModelProperty("内容")
     private String content;
-
-    @Column
-    @ApiModelProperty("内容简介")
-    private String contentDetails;
 
     @Column
     @ApiModelProperty("缩略图")

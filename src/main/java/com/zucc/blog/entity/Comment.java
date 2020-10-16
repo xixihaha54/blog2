@@ -11,13 +11,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "comment")
+@Table(name="t_comment")
 @ApiModel(description = "评论实体")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("评论id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("评论用户id")

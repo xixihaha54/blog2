@@ -8,19 +8,19 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "collection")
+@Table(name="t_collection")
 @ApiModel(description = "文章收藏实体")
 public class Collection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("收藏id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("用户id")
-    private long accountId;
+    private Long accountId;
 
     @Column
     @ApiModelProperty("文章id")
-    private long articleId;
+    private Long articleId;
 }

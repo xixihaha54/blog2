@@ -8,17 +8,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "enclosure")
+@Table(name="t_enclosure")
 @ApiModel(description = "附件实体")
 public class Enclosure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("附件id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("文章id")
-    private long articleId;
+    private Long articleId;
 
     @Column
     @ApiModelProperty("路径")

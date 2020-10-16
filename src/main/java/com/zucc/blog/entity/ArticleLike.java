@@ -11,12 +11,12 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "articleLike")
+@Table(name="t_article_like")
 @ApiModel(description = "点赞实体")
 public class ArticleLike {
     @Id
     @ApiModelProperty("点赞id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("文章id")

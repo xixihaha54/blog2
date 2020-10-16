@@ -8,17 +8,17 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "label")
+@Table(name="t_label")
 @ApiModel(description = "文章标签实体")
 public class Label {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("标签id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("文章id")
-    private long articleId;
+    private Long articleId;
 
     @Column
     @ApiModelProperty("标签内容")

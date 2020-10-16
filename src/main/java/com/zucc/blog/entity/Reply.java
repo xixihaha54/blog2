@@ -8,13 +8,13 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "reply")
+@Table(name="t_reply")
 @ApiModel(description = "评论回复实体")
 public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty("回复id")
-    private long uid;
+    private Long uid;
 
     @Column
     @ApiModelProperty("回复用户id")
