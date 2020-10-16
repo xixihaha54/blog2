@@ -58,3 +58,4 @@ public class Article {
     private Boolean isDeleted;
 
 }
+
