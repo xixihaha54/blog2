@@ -45,4 +45,10 @@ public class UserController {
         return userService.findAllUser();
     }
 
+    @PostMapping("/modifyuser")
+    @ApiOperation(value = "用户修改")
+    public Result<User> modifyUser(@ApiParam("账号") @RequestBody User user){
+        return userService.modifyUser(user);
+    }
+
 }

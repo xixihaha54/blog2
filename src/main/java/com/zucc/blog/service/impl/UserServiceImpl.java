@@ -75,4 +75,20 @@ public class UserServiceImpl implements UserService {
         }
         return ResultGenerator.genResult(200, "登录成功", userList);
     }
+
+    @Override
+    public Result<User> modifyUser(User user) {
+        List<User> userList = userRepository.findAll();
+        int count = 0;
+        for(User user1 : userList){
+            if(user.getAccount().equals(user1.getAccount())){
+                count++;
+            }
+        }
+        if(count > 1){
+            return ResultGenerator.genResult(500, "用户名已存在", null);
+        }
+        userRepository.save(user);
+        return ResultGenerator.genResult(200, "修改成功", user);
+    }
 }

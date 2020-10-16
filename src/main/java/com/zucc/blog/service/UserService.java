@@ -10,9 +10,10 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    Result<User> registerUser (UserLoginAndRegister userLoginAndRegister);
-    Result<User> loginUser (UserLoginAndRegister userLoginAndRegister);
-    Result<User> findUser (Long uid);
+    Result<User> registerUser(UserLoginAndRegister userLoginAndRegister);
+    Result<User> loginUser(UserLoginAndRegister userLoginAndRegister);
+    Result<User> findUser(Long uid);
     Result<List<User>> findAllUser();
+    Result<User> modifyUser(User user);
 
 }
