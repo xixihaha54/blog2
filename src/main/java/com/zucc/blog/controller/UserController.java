@@ -7,10 +7,9 @@ import com.zucc.blog.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -23,8 +22,27 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    @ApiOperation(value = "注册用户")
-    public Result<User> addUser(@ApiParam("账号") @RequestBody UserLoginAndRegister userLoginAndRegister){
+    @ApiOperation(value = "用户注册")
+    public Result<User> registerUser(@ApiParam("账号") @RequestBody UserLoginAndRegister userLoginAndRegister){
         return userService.registerUser(userLoginAndRegister);
     }
+
+    @PostMapping("/login")
+    @ApiOperation(value = "用户登录")
+    public Result<User> loginUser(@ApiParam("账号") @RequestBody UserLoginAndRegister userLoginAndRegister){
+        return userService.loginUser(userLoginAndRegister);
+    }
+
+    @PostMapping("/finduser")
+    @ApiOperation(value = "根据id查找用户")
+    public Result<User> findUser(@ApiParam("用户id") @RequestParam Long uid){
+        return userService.findUser(uid);
+    }
+
+    @PostMapping("/findalluser")
+    @ApiOperation(value = "查找所有用户")
+    public Result<List<User>> findAllUser(){
+        return userService.findAllUser();
+    }
+
 }
