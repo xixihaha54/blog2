@@ -12,9 +12,6 @@ import java.util.List;
 public interface ArticleRepository extends JpaRepository<Article, Long>{
     List<Article> findAllByTitleLike(String title);
 
-//    @Query(value = "SELECT new com.zucc.blog.entity.WarticleLike(u,a) FROM Article u,ArticleLike a WHERE u.uid=a.articleId")
-//    public List<WarticleLike> addWarticleLike();
-
     @Query(value = "SELECT new com.zucc.blog.entity.UserArticle(u,a) FROM Article u left join User a on u.accountId=a.uid")
     public List<UserArticle> findAllUserArticle();
 
