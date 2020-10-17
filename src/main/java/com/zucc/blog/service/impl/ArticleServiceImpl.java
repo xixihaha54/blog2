@@ -3,6 +3,7 @@ package com.zucc.blog.service.impl;
 import com.sun.media.jfxmedia.logging.Logger;
 import com.zucc.blog.dao.ArticleRepository;
 import com.zucc.blog.entity.Article;
+import com.zucc.blog.entity.UserArticle;
 import com.zucc.blog.service.ArticleService;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
@@ -37,16 +38,30 @@ public class ArticleServiceImpl implements ArticleService {
         return article2;
     }
 
+    @Override
+    public Article findAllByUid(Long uid){
+        Article article6 = articleRepository.findById(uid).get();
+        return article6;
+    }
+
 
     @Override
     public List<Article> findAll(){
         List<Article> article3 = articleRepository.findAll();
+
         return article3;
     }
 
     @Override
+    public  List<UserArticle> findAllUserArticle(){
+        List<UserArticle> userArticles = articleRepository.findAllUserArticle();
+
+        return userArticles;
+    }
+
+    @Override
     public Page<Article> findArticleByPage(String title,Integer pageNo,Integer pageSize){
-        Sort sort = Sort.by(Sort.Direction.DESC,"title");
+        Sort sort = Sort.by(Sort.Direction.DESC,"uid");
         Pageable pageable = PageRequest.of(pageNo,pageSize,sort);
         if (!StringUtils.isEmpty(title)){
             ExampleMatcher matcher = ExampleMatcher.matching()
@@ -59,5 +74,8 @@ public class ArticleServiceImpl implements ArticleService {
             return articleRepository.findAll(pageable);
         }
     }
+
+//    @Override
+
 
 }

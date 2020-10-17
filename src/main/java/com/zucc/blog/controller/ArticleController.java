@@ -3,12 +3,12 @@ package com.zucc.blog.controller;
 import com.zucc.blog.common.Result;
 import com.zucc.blog.common.ResultGenerator;
 import com.zucc.blog.entity.Article;
+import com.zucc.blog.entity.UserArticle;
 import com.zucc.blog.service.ArticleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.data.domain.Page;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +31,15 @@ public class ArticleController {
         return ResultGenerator.genSuccess(articleService.addArticle(article));
     }
 
+    @PostMapping("/findArticle")
+    @ApiOperation(value = "根据文章id找" , notes = "")
+    public Result<Article> findAllByUid(
+            @ApiParam("查找id")
+            @RequestBody Long uid
+    ){
+      return ResultGenerator.genSuccess(articleService.findAllByUid(uid));
+    }
+
     @ApiOperation(value = "根据文章标题获取文章", notes = "")
     @PostMapping("/findtitle")
     public Result<List<Article>> findAllByTitleLike(
@@ -46,6 +55,10 @@ public class ArticleController {
         return  ResultGenerator.genSuccess(articleService.findAll());
     }
 
+    @ApiOperation(value = "获取所有文章以及用户信息", notes = "")
+    @GetMapping("/findAlluser")
+    public Result<List<UserArticle>> findAllUserArticle() {return ResultGenerator.genSuccess(articleService.findAllUserArticle());}
+
     @ApiOperation(value = "分页获取", notes = "")
     @PostMapping("/fenfind")
     public Result<Page<Article>> findArticleByPage(
@@ -58,4 +71,6 @@ public class ArticleController {
     ){
         return ResultGenerator.genSuccess(articleService.findArticleByPage(title,pageNo,pageSize));
     }
+
+
 }
