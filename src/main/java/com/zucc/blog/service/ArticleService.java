@@ -16,7 +16,6 @@ public interface ArticleService {
 
     List<Article> findAll();
 
-
     Page<Article> findArticleByPage(String title,Integer pageNo ,Integer pageSize);
 
     List<UserArticle> findAllUserArticle();

@@ -45,4 +45,6 @@ public class Comment {
     @ApiModelProperty("点赞数")
     private Integer likeNum;
 
+//    @Column()
+
 }

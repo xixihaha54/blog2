@@ -2,9 +2,7 @@ package com.zucc.blog.dao;
 
 import com.zucc.blog.entity.Article;
 import com.zucc.blog.entity.UserArticle;
-import com.zucc.blog.entity.WarticleLike;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;

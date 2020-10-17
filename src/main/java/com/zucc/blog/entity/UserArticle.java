@@ -13,17 +13,6 @@ public class UserArticle  {
 
     }
 
-//    public UserArticle(Article article){
-//
-//        this.article = article;
-//        this.user = user;
-//    }
-//
-//    public UserArticle(User user){
-//        Article article = new Article();
-//        this.article = article;
-//        this.user = user;
-//    }
 
     public UserArticle(Article article,User user){
         this.article = article;
